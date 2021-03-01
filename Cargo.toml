@@ -1,3 +1,5 @@
+cargo-features = ["strip"]
+
 [package]
 name = "trojan-r"
 version = "0.1.0"
@@ -22,7 +24,11 @@ futures-core = "0.3"
 futures-util = "0.3"
 
 [profile.release]
-lto = true
+lto = "fat"
+opt-level = 'z'
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
 
 [features]
 default = ["full"]
