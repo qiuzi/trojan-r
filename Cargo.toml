@@ -22,7 +22,10 @@ futures-core = "0.3"
 futures-util = "0.3"
 
 [profile.release]
-lto = true
+lto = "fat"
+opt-level = 'z'
+panic = "abort"
+codegen-units = 1
 
 [features]
 default = ["full"]
